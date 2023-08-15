@@ -1,0 +1,9 @@
+name: DirectChat
+author: SayuShira
+punchline: The typing way.
+description: |-
+  Add a command /directchat to toggle between chat modes.
+tags:
+  - Chat
+  - Command
+  - QoL
