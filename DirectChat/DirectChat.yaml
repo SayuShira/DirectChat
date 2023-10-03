@@ -3,6 +3,7 @@ author: SayuShira
 punchline: The typing way.
 description: |-
   Add a command /directchat to toggle between chat modes.
+dalamud_api_level: 9
 tags:
   - Chat
   - Command

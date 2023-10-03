@@ -1,9 +1,7 @@
 ﻿using Dalamud.Game.Command;
-using Dalamud.Game.Config;
-using Dalamud.Game.Gui;
 using Dalamud.IoC;
-using Dalamud.Logging;
 using Dalamud.Plugin;
+using Dalamud.Plugin.Services;
 
 namespace DirectChat;
 
@@ -11,20 +9,23 @@ public class DirectChat : IDalamudPlugin
 {
     public string Name => "DirectChat";
 
-    private CommandManager CommandManager { get; init; }
-    private GameConfig GameConfig { get; }
-    private ChatGui Chat { get; }
+    private ICommandManager CommandManager { get; init; }
+    private IGameConfig GameConfig { get; }
+    private IChatGui Chat { get; }
+    private IPluginLog PluginLog { get; }
 
     private const string CommandName = "/directchat";
 
     public DirectChat(
-        [RequiredVersion("1.0")] CommandManager commandManager,
-        [RequiredVersion("1.0")] GameConfig gameConfig,
-        [RequiredVersion("1.0")] ChatGui chat)
+        [RequiredVersion("1.0")] ICommandManager commandManager,
+        [RequiredVersion("1.0")] IGameConfig gameConfig,
+        [RequiredVersion("1.0")] IChatGui chat,
+        [RequiredVersion("1.0")] IPluginLog pluginLog)
     {
         CommandManager = commandManager;
         GameConfig = gameConfig;
         Chat = chat;
+        PluginLog = pluginLog;
 
         CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand) {
             HelpMessage = "Toggle the games Direct Chat"
