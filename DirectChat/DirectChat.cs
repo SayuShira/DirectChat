@@ -1,5 +1,4 @@
 ﻿using Dalamud.Game.Command;
-using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 
@@ -17,10 +16,10 @@ public class DirectChat : IDalamudPlugin
     private const string CommandName = "/directchat";
 
     public DirectChat(
-        [RequiredVersion("1.0")] ICommandManager commandManager,
-        [RequiredVersion("1.0")] IGameConfig gameConfig,
-        [RequiredVersion("1.0")] IChatGui chat,
-        [RequiredVersion("1.0")] IPluginLog pluginLog)
+        ICommandManager commandManager,
+        IGameConfig gameConfig,
+        IChatGui chat,
+        IPluginLog pluginLog)
     {
         CommandManager = commandManager;
         GameConfig = gameConfig;
