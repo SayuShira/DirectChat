@@ -3,6 +3,7 @@ author: SayuShira
 punchline: The typing way.
 description: |-
   Add a command /directchat to toggle between chat modes.
+repo_url: https://github.com/SayuShira/DirectChat
 tags:
   - Chat
   - Command
